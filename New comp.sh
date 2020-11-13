@@ -91,8 +91,15 @@ cd /home
 	echo -e ""	
 	snap install -y spotify
 
+    echo "===================================================================="
+	echo "==                   Download & Install Postman                   =="
+	echo "===================================================================="
+	echo -e "\e[93m>>>>> Installing Postman <<<<<\e[0m"
+	echo -e ""	
+	snap install -y postman
+
     echo "==================================================================="
-	echo "==                  Download & Install PPycharm                  =="
+	echo "==                  Download & Install Pycharm                  =="
 	echo "==================================================================="
 	echo -e "\e[93m>>>>> Installing Visual Studio Code <<<<<\e[0m"
 	echo -e ""	
