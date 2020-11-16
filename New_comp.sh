@@ -42,9 +42,7 @@ if [[ $EUID -ne 0 ]]; then
 	"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
 	$(lsb_release -cs) \
 	stable"
-	
-	apt-get update
-	
+		
 	apt-get install -y docker-ce docker-ce-cli containerd.io
 
 	echo "============================================="
@@ -60,12 +58,24 @@ if [[ $EUID -ne 0 ]]; then
 	echo "====================================="
 	echo -e "\e[93m>>>>> Installing python <<<<<\e[0m"
 	echo -e ""	
-	apt-get update
-	apt-get install python3.7
+	apt-get install -y python3.7
 	cd /tmp
 		wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 		python get-pip.py
 
+	echo "==================================="
+	echo "==    Download & Install Java    =="
+	echo "==================================="
+	apt-get install -y openjdk-8-jdk
+
+	echo "======================================"
+	echo "==    Download & Install Jenkins    =="
+	echo "======================================"
+	wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+	sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+  	  /etc/apt/sources.list.d/jenkins.list'
+	apt get update
+	apt-get install -y jenkins
 
 cd /tmp
 	echo "======================================================================="
