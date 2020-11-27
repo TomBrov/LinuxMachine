@@ -76,6 +76,14 @@ if [[ $EUID -ne 0 ]]; then
 	apt get update
 	apt-get install -y jenkins
 
+	echo "============================================="
+	echo "==    Download & Install Github Desktop    =="
+	echo "============================================="
+	wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | sudo apt-key add -
+	sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
+	apt-get update
+	apt install github-desktop -y
+
 cd /tmp
 	echo "======================================================================="
 	echo "==                     Download & Install Chrome                     =="
