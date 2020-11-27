@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo ""
-echo "New Computer Script Start"
+echo "================================="
+echo "==  New Computer Script Start  =="
+echo "================================="
 echo ""
 if [[ $EUID -ne 0 ]]; then 
 		echo "======================================================================="
@@ -10,9 +12,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1 
 	fi
 
-	echo "============================================================================\n"
-	echo "==    Updates / SSH Server / htop / vim / curl / Aria2 / DevTools / vlc   =="
-	echo "============================================================================"
+	echo "=======================================================================================\n"
+	echo "==    Updates / SSH Server / htop / vim / curl / Aria2 / DevTools / vlc / Git-Crypt  =="
+	echo "======================================================================================="
 	echo -e "\e[93m>>>>> Installing Updates <<<<<\e[0m"
 	echo -e ""
 	apt-get update && apt-get install -y \
@@ -22,7 +24,8 @@ if [[ $EUID -ne 0 ]]; then
 		curl\
 		aria2\
 		net-tools\
-		vlc
+		vlc\
+		git-crypt
 
 	echo "====================================="
 	echo "==    Download & Install docker    =="
@@ -63,14 +66,10 @@ if [[ $EUID -ne 0 ]]; then
 		wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 		python get-pip.py
 
-	echo "==================================="
-	echo "==    Download & Install Java    =="
-	echo "==================================="
-	apt-get install -y openjdk-8-jdk
-
 	echo "======================================"
 	echo "==    Download & Install Jenkins    =="
 	echo "======================================"
+	apt-get install -y openjdk-8-jdk
 	wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 	sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
   	  /etc/apt/sources.list.d/jenkins.list'
@@ -86,7 +85,7 @@ cd /tmp
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb -y 
 	
 
-    echo "======================================================================="
+        echo "======================================================================="
 	echo "==                   Download & Install TeamViewer                   =="
 	echo "======================================================================="
 	echo -e "\e[93m>>>>> Installing TeamViewer <<<<<\e[0m"
@@ -94,7 +93,7 @@ cd /tmp
 	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo apt install ./teamviewer_amd64.deb -y
 
 cd /home
-    echo "===================================================================="
+        echo "===================================================================="
 	echo "==                   Download & Install Spotify                   =="
 	echo "===================================================================="
 	echo -e "\e[93m>>>>> Installing spotify <<<<<\e[0m"
@@ -108,19 +107,12 @@ cd /home
 	echo -e ""	
 	snap install -y postman
 
-    echo "==================================================================="
+        echo "==================================================================="
 	echo "==                  Download & Install Pycharm                  =="
 	echo "==================================================================="
 	echo -e "\e[93m>>>>> Installing Visual Studio Code <<<<<\e[0m"
 	echo -e ""	
 	snap install pycharm-community --classic
-
-    echo "==============================================================================="
-	echo "==                   Download & Install Visual Code Studio                   =="
-	echo "==============================================================================="
-	echo -e "\e[93m>>>>> Installing Visual Studio Code <<<<<\e[0m"
-	echo -e ""	
-	snap install --classic code 
 
 echo ""
 echo "================"
