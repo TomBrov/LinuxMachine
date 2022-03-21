@@ -66,24 +66,6 @@ if [[ $EUID -ne 0 ]]; then
 		wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 		python get-pip.py
 
-	echo "======================================"
-	echo "==    Download & Install Jenkins    =="
-	echo "======================================"
-	apt-get install -y openjdk-8-jdk
-	wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-	sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
-  	  /etc/apt/sources.list.d/jenkins.list'
-	apt get update
-	apt-get install -y jenkins
-
-	echo "============================================="
-	echo "==    Download & Install Github Desktop    =="
-	echo "============================================="
-	wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | sudo apt-key add -
-	sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
-	apt-get update
-	apt install github-desktop -y
-
 cd /tmp
 	echo "======================================================================="
 	echo "==                     Download & Install Chrome                     =="
@@ -91,14 +73,6 @@ cd /tmp
 	echo -e "\e[93m>>>>> Installing chrome <<<<<\e[0m"
 	echo -e ""	
 	wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb -y 
-	
-
-        echo "======================================================================="
-	echo "==                   Download & Install TeamViewer                   =="
-	echo "======================================================================="
-	echo -e "\e[93m>>>>> Installing TeamViewer <<<<<\e[0m"
-	echo -e ""	
-	wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb && sudo apt install ./teamviewer_amd64.deb -y
 
 cd /home
         echo "===================================================================="
